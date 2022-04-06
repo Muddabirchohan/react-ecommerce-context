@@ -2,11 +2,11 @@ import React from 'react';
 import { PlusCircleIcon, MinusCircleIcon, TrashIcon } from './../icons/index';
 
 const CartItem = (product) => {
-  const { title, imageUrl, price, quantity, increase, decrease, removeProduct } = product;
+  const { title, image, price, quantity, increase, decrease, removeProduct } = product;
   return (
     <div className='cart-item'>
       <div className='item-image'>
-        <img src={imageUrl} alt='product' />
+        <img src={image} alt='product' />
       </div>
       <div className='name-price'>
         <h4>{title}</h4>

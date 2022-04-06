@@ -24,12 +24,12 @@ const SingleProduct = ({ match, history }) => {
   }, [product, push, id, products]);
 
   if (!product) { return null }
-  const { imageUrl, title, price, description } = product;
+  const { image, title, price, description } = product;
   return (
     <Layout>
       <div className='single-product-container'>
         <div className='product-image'>
-          <img src={imageUrl} alt='product' />
+          <img src={image} alt='product' />
         </div>
         <div className='product-details'>
           <div className='name-price'>
