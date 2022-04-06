@@ -26,7 +26,9 @@ const cartReducer = (state, action) => {
                 ...state,
                 cartItems: [...state.cartItems],
                     itemCount: state.cartItems.reduce((total, product) => total + product.quantity, 0),
-                    total: state.cartItems.reduce((total, product) => total + product.price * product.quantity, 0)
+                    total: state.cartItems.reduce((total, product) => total + product.price * product.quantity, 0),
+                    ...sumItems(state.cartItems)
+
             }
             case 'INCREASE':
                 const increaseIndex = state.cartItems.findIndex(item => item.id === action.payload.id);
