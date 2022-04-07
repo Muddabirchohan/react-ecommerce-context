@@ -6,6 +6,8 @@ import NotFound from './components/not-found';
 import Shop from './components/pages/shop/shop';
 import singleProduct from './components/single-product/single-product';
 import CartPage from './components/cart-page/cart-page';
+import CheckoutPage from './components/checkout/checkout';
+
 
 function App() {
   return (
@@ -15,7 +17,7 @@ function App() {
         <Route path='/shop' component={Shop} />
         <Route path='/product/:id' component={singleProduct} />
         <Route path='/cart' component={CartPage} /> 
-
+        <Route path='/checkout' component={CheckoutPage} /> 
         <Route path="*" component={NotFound} />
 
       </Switch>

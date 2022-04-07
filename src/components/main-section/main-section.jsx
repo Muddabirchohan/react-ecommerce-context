@@ -18,7 +18,7 @@ const MainSection = ({ history }) => {
             each Nomads piece is thoughtfully created to be the perfect balance of 
             form and function.</p>
             <button 
-            className="button is-black" id='shop-now' onClick={() => history.push('/product/1')}>
+            className="button is-black" id='shop-now' onClick={() => history.push('/shop')}>
               STUDIO BAG
           </button>
         </div> 

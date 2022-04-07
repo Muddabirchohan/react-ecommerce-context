@@ -2,11 +2,11 @@ import React from 'react';
 import { PlusCircleIcon, MinusCircleIcon, TrashIcon } from './../icons/index';
 
 const CartItem = (product) => {
-  const { title, image, price, quantity, increase, decrease, removeProduct } = product;
+  const { title, image, price, quantity, increase, decrease, removeProduct,page } = product;
   return (
     <div className='cart-item'>
       <div className='item-image'>
-        <img src={image} alt='product' />
+        <img src={image} alt='product' style={{width: 100}}/>
       </div>
       <div className='name-price'>
         <h4>{title}</h4>
@@ -15,6 +15,8 @@ const CartItem = (product) => {
       <div className='quantity'>
         <p>{`Quantity: ${quantity}`}</p>
       </div>
+
+      {page !== "checkout" &&
       <div className='btns-container'>
         <button 
           onClick={() => increase(product)}
@@ -41,7 +43,7 @@ const CartItem = (product) => {
           </button>
         }
          
-      </div>
+      </div>}
     </div>
   );
 }

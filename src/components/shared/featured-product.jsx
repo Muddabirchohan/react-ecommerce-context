@@ -7,7 +7,7 @@ import './featured-product.styles.scss';
 const FeaturedProduct = (props) => {
   const { title, image, price, id, description, history } = props;
   const product = { title, image, price, id, description }
-  const { addProduct, cartItems } = useContext(CartContext);
+  const { addProduct, cartItems, increase } = useContext(CartContext);
   return (
     <div className='featured-product'>
       <div className='featured-image' onClick={() => history.push(`/product/${id}`)}>
@@ -29,7 +29,7 @@ const FeaturedProduct = (props) => {
           <button 
             className="button is-white nomad-btn" 
             id='btn-white-outline' 
-            onClick={() => {}}>
+            onClick={() => increase(product)}>
               ADD MORE
           </button>
         }

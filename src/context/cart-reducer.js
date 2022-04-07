@@ -1,6 +1,6 @@
 const storeCartItems = (cartItems) => {
-    localStorage.setItem('cart', JSON.stringify(cartItems.length > 0 ? cartItems: []));
-  }
+    localStorage.setItem('cart', JSON.stringify(cartItems.length > 0 ? cartItems : []));
+}
 
 export const sumItems = cartItems => {
     storeCartItems(cartItems);
@@ -13,15 +13,12 @@ export const sumItems = cartItems => {
 const cartReducer = (state, action) => {
     switch (action.type) {
         case 'ADD_ITEM':
-            // check if item is in cart already
             if (!state.cartItems.find(item => item.id === action.payload.id)) {
-                // add item to cartItems in current state
                 state.cartItems.push({
                     ...action.payload,
                     quantity: 1,
                 });
             }
-            // return new state
             return {
                 ...state,
                 cartItems: [...state.cartItems],
@@ -56,15 +53,15 @@ const cartReducer = (state, action) => {
                             cartItems: [...newCartItems],
                                 ...sumItems(newCartItems),
                         };
-                        case 'CLEAR':
-                            localStorage.removeItem('cart'); // remove the 'cart' item from local storage
-                            return {
-                                cartItems: [],
+                    case 'CLEAR':
+                        localStorage.removeItem('cart'); // remove the 'cart' item from local storage
+                        return {
+                            cartItems: [],
                                 itemCount: 0,
                                 total: 0,
-                            }   
-                    default:
-                        return state;
+                        }
+                        default:
+                            return state;
     }
 }
 
