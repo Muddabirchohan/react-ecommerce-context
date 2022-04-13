@@ -6,7 +6,7 @@ const Total = ({ itemCount, total, clearCart, history,page }) => {
     <div className='total-container'>
       <div className='total'>
         <p>Total Items: {itemCount}</p>
-        <p>{`Total: $${total}`}</p>
+        <p>{`Total: $${total.toFixed(2)}`}</p>
         {page !== "checkout" ?
         <div className='checkout'>
           <button className='button is-black' onClick={() => history.push('/checkout')}>CHECKOUT</button>

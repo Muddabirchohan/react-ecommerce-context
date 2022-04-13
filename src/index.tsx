@@ -6,19 +6,20 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ProductsContextProvider from './context/products-context';
 import CartContextProvider from './context/cart-context';
+import WishlistContextProvider from './context/wishlist-context';
 
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
-
-ReactDOM.render(
+root.render(
   <BrowserRouter>
    <ProductsContextProvider>
      <CartContextProvider>
+       <WishlistContextProvider>
    <App />
+   </WishlistContextProvider>
    </CartContextProvider>
    </ProductsContextProvider>
-  </BrowserRouter>,
-  document.getElementById('root')
-);
+  </BrowserRouter>);
 
 
 // If you want to start measuring performance in your app, pass a function

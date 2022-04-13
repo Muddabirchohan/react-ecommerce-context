@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import Layout from '../../layout';
-import FeaturedProduct from '../../shared/featured-product';
+import FeaturedProduct from '../../shared/featured-product.tsx';
 import { ProductsContext } from '../../../context/products-context';
-
+import { IproductsData } from '../../../interfaces/product-interface';
 import './shop.styles.scss';
 
 const Shop = () => {
   const { products } = useContext(ProductsContext);
-  const allProducts = products.map(product => (
+  const allProducts:IproductsData[] = products.map((product:IproductsData) => (
     <FeaturedProduct {...product} key={product.id} />
     ));
     

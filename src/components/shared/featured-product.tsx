@@ -3,8 +3,10 @@ import { withRouter } from 'react-router-dom';
 import { isInCart } from '../../helper';
 import { CartContext } from '../../context/cart-context'; 
 import './featured-product.styles.scss';
+import { IproductsData, IproductsDataAndHistory } from '../../interfaces/product-interface';
+import Wishlist from './../wishlist/wishlist';
 
-const FeaturedProduct = (props) => {
+const FeaturedProduct = (props:IproductsDataAndHistory) => {
   const { title, image, price, id, description, history } = props;
   const product = { title, image, price, id, description }
   const { addProduct, cartItems, increase } = useContext(CartContext);
@@ -33,8 +35,11 @@ const FeaturedProduct = (props) => {
               ADD MORE
           </button>
         }
+
         
       </div>
+      <Wishlist {...product}/>
+
     </div>
   );
 }

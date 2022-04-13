@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
-import { CartContext } from './../../context/cart-context';
-import Layout from './../layout';
+import { CartContext } from '../../context/cart-context';
+import Layout from '../layout';
 import CartItem from './cart-item';
 import Total from './total';
+import { IproductsData } from '../../interfaces/product-interface';
 
 import './cart-page.styles.scss';
 
@@ -23,7 +24,7 @@ const CartPage = () => {
             <div className='cart-item-container'>
 
               {
-                cartItems.map(item => <CartItem {...item} key={item.id} page="cart" {...cartFuncs} />)
+                cartItems.map((item:IproductsData) => <CartItem {...item} key={item.id} page="cart" {...cartFuncs} />)
               }
 
             </div>

@@ -6,14 +6,16 @@ export const ProductsContext = createContext();
 const ProductsContextProvider = ({children}) => {
 
     const [products,setProducts] = useState([]);
+    const [error,setError] = useState({});
+
 
 useEffect(()=>{
     fetch('https://fakestoreapi.com/products')
             .then(res=>res.json())
             .then(json=> setProducts(json))
+            .catch(err => setError(err))
 },[])
 
-console.log("pro",products)
   return (
     <ProductsContext.Provider value={{ products }}>
       { children }
