@@ -3,7 +3,9 @@ import wishlistReducer, { sumItems } from './wishlist-reducer';
 
 export const WishlistContext = createContext();
 
-const initialState = { wishlist: [] };
+const wishlistFromStorage = localStorage.getItem('wishlist') ? JSON.parse(localStorage.getItem('wishlist')) : [];
+
+const initialState = { wishlist: wishlistFromStorage };
 
 const WishlistContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(wishlistReducer, initialState);

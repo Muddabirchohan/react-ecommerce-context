@@ -8,6 +8,7 @@ import singleProduct from './components/single-product/single-product';
 import CartPage from './components/cart-page/cart-page.tsx';
 import CheckoutPage from './components/checkout/checkout';
 import Wishlist from './components/pages/shop/wishlist';
+import Chat from './components/chat-room/chat';
 
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
         <Route path='/cart' component={CartPage} /> 
         <Route path='/checkout' component={CheckoutPage} /> 
         <Route path='/wishlist' component={Wishlist} /> 
+        <Route path='/chat' component={Chat} /> 
+
         <Route path="*" component={NotFound} />
 
       </Switch>

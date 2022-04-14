@@ -9,10 +9,19 @@ const Wishlist = () => {
 
   return (
     <Layout>
-      <div className="wishlist-container">
-        {wishlist.map((item) => (
+      <h1> Wishlist </h1>
+        <div className='cart-page'>
+            <div className='cart-item-container'>
+            {
+        wishlist.length === 0 
+        ? 
+        <div className='empty-cart'>Your Wishlist is empty</div>
+        :
+        wishlist.map((item) => (
           <WishlistItem {...item} />
-        ))}
+        ))
+        }
+      </div>
       </div>
     </Layout>
   );

@@ -1,3 +1,7 @@
+const storeWishlistItems = (wishlist) => {
+    localStorage.setItem('wishlist', JSON.stringify(wishlist.length > 0 ? wishlist : []));
+}
+
 const wishlistReducer = (state, action) => {
     switch (action.type) {
         case 'ADD_ITEM':
@@ -13,14 +17,17 @@ const wishlistReducer = (state, action) => {
 
             return {
                 ...state,
-                wishlist: [...state.wishlist]
+                wishlist: [...state.wishlist],
+                ...storeWishlistItems(state.wishlist)
             }
 
 
             case 'CLEAR':
                 return {
                     ...state,
-                    wishlist: []
+                    wishlist: [],
+                    ...storeWishlistItems(state.wishlist)
+
                 }
                 default:
                     return state;

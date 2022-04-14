@@ -1,5 +1,4 @@
 import React, { createContext, useEffect, useState } from 'react';
-// import {shop} from '../shop-data/shop-data';
 
 export const ProductsContext = createContext();
 
@@ -11,7 +10,7 @@ const ProductsContextProvider = ({children}) => {
 
 useEffect(()=>{
     fetch('https://fakestoreapi.com/products')
-            .then(res=>res.json())
+            .then(res=> res.json())
             .then(json=> setProducts(json))
             .catch(err => setError(err))
 },[])
